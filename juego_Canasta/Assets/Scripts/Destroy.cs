@@ -2,8 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Piso : MonoBehaviour
+public class Destroy: MonoBehaviour
 {
+
+    public float esperar;
+
+     
         // Start is called before the first frame update
     void Start()
     {
@@ -13,15 +17,12 @@ public class Piso : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+    
+    
+    
     }
+    
+    
 
-    void onCollisionEnter2D (Collision2D col){
 
-        if (col.gameObject.CompareTag("Bueno")){
-
-            Destroy(col.gameObject);
-
-        }
-    }
 }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Malo
   - Bueno
+  - Piso
   layers:
   - Default
   - TransparentFX
