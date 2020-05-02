@@ -8,27 +8,32 @@ public class Botones : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    public void PlayGame (){
+    public void PlayGame()
+    {
 
         SceneManager.LoadScene(1);
+        GameManager.Instance.SetGameState(GameManager.GameState.playing);
 
     }
 
-    public void ScoreTable (){
+    public void ScoreTable()
+    {
 
         SceneManager.LoadScene(2);
+        GameManager.Instance.SetGameState(GameManager.GameState.ranking);
     }
 
-    public void Quit(){
+    public void Quit()
+    {
 
         Debug.Log("Se cierra el juego");
         Application.Quit();

@@ -24,23 +24,28 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-//if gamerunning
-       
-        spawnTime -= Time.deltaTime;//resta tiemp al spwantime
-
-        if (spawnTime <= 0.0f && spawnedObjectsContainer.transform.childCount < maxSpawnObjectsInSceneLimit)//cuando spwantime es menor o igual a 0 y si la cantidad de objetos en la escena no supera el limite
+        //if gamerunning
+        if (GameManager.Instance.GetCurrentGameState() == GameManager.GameState.playing)
         {
-            //genero una nueva posicion donde se instancia el proximo objeto entre un valor aleatorio en el largo de la pantalla y la constante del alto
-            spawnPos = Camera.main.ScreenToWorldPoint(new Vector3( Random.Range(0, Screen.width), Screen.height, 0));
-            //le sumo 1 al y para que aparescan fuera de la pantalla
-            spawnPos = new Vector3(spawnPos.x, spawnPos.y + 1, spawnPos.z);
+            spawnTime -= Time.deltaTime;//resta tiemp al spwantime
 
-            //Instance un objeto al azar en la lista spwanableItemsPrefab. Elije de forma aleatoria entre 0 y la cantidad de objetos que hay en la lista
-            GameObject spawnedObject = Instantiate(spwanableItemsPrefab [Random.Range(0, spwanableItemsPrefab.Count)] , spawnPos , Quaternion.identity , spawnedObjectsContainer.transform);
+            if (spawnTime <= 0.0f && spawnedObjectsContainer.transform.childCount < maxSpawnObjectsInSceneLimit)//cuando spwantime es menor o igual a 0 y si la cantidad de objetos en la escena no supera el limite
+            {
+                //genero una nueva posicion donde se instancia el proximo objeto entre un valor aleatorio en el largo de la pantalla y la constante del alto
+                spawnPos = Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(0, Screen.width), Screen.height, 0));
+                //le sumo 1 al y para que aparescan fuera de la pantalla
+                spawnPos = new Vector3(spawnPos.x, spawnPos.y + 1, 0);
 
-            // pide un nuevo valor para spwantime y lo redondea
-            spawnTime = Mathf.Round(Random.Range(spawnTimeRange.x, spawnTimeRange.y)); 
+                //Instance un objeto al azar en la lista spwanableItemsPrefab. Elije de forma aleatoria entre 0 y la cantidad de objetos que hay en la lista
+                GameObject spawnedObject = Instantiate(spwanableItemsPrefab[Random.Range(0, spwanableItemsPrefab.Count)], spawnPos, Quaternion.identity, spawnedObjectsContainer.transform);
+
+                //destruye el objeto instanciado despues de x tiempo
+                Destroy(spawnedObject, 5.0f);
+
+                // pide un nuevo valor para spwantime y lo redondea
+                spawnTime = Mathf.Round(Random.Range(spawnTimeRange.x, spawnTimeRange.y));
+            }
         }
+
     }
 }

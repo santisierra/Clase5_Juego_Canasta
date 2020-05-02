@@ -15,13 +15,13 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-       movimiento.x = Input.GetAxisRaw("Horizontal"); 
+        movimiento.x = Input.GetAxisRaw("Horizontal");
     }
 
     void FixedUpdate()
@@ -30,16 +30,19 @@ public class Player : MonoBehaviour
         rb.MovePosition(rb.position + movimiento * velovidadMov * Time.fixedDeltaTime);
     }
 
-    void OnTriggerEnter2D(Collider2D trigger){
+    void OnTriggerEnter2D(Collider2D trigger)
+    {
 
-         if (trigger.gameObject.tag.Equals("Malo")){
+        if (trigger.gameObject.tag.Equals("Malo"))
+        {
+            Destroy(trigger.gameObject);
+            puntos--;
+        }
 
-             puntos --;
-         }
-
-         if(trigger.gameObject.tag.Equals("Bueno")){
-
-             puntos ++;
-         }
-     }  
+        if (trigger.gameObject.tag.Equals("Bueno"))
+        {
+            Destroy(trigger.gameObject);
+            puntos++;
+        }
+    }
 }
