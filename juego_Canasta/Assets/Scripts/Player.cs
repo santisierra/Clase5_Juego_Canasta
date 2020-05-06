@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
 
     public Rigidbody2D rb;
 
-    public float puntos;
+    public int puntos;
 
     public bool corriendo;
 

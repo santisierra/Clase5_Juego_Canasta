@@ -38,4 +38,9 @@ public class Botones : MonoBehaviour
         Debug.Log("Se cierra el juego");
         Application.Quit();
     }
+
+    public void IngresarRanking()
+    {
+        GameManager.Instance.IngresarAlRanking();
+    }
 }
