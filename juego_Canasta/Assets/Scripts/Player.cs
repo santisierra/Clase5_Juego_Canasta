@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -15,10 +16,12 @@ public class Player : MonoBehaviour
     private bool mirandoDerecha = true;
 
     public Animator playerAnim;
-    // Start is called before the first frame update
+
+   // Start is called before the first frame update
     void Start()
     {
         playerAnim = GetComponent<Animator>();
+
     }
 
     // Update is called once per frame
@@ -36,6 +39,8 @@ public class Player : MonoBehaviour
 
             Flip();
         }
+
+       
     }
 
     void FixedUpdate()
