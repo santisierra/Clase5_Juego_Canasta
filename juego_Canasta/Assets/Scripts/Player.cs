@@ -15,6 +15,9 @@ public class Player : MonoBehaviour
     private bool mirandoDerecha = true;
 
     public Animator playerAnim;
+
+
+    public List<AudioClip> playerAudios;
     // Start is called before the first frame update
     void Start()
     {
@@ -56,6 +59,7 @@ public class Player : MonoBehaviour
         {
             Destroy(trigger.gameObject);
             puntos--;
+            AudioSource.PlayClipAtPoint(playerAudios[0], Camera.main.transform.position);
 
             playerAnim.SetTrigger("Lastimado");           
 
@@ -63,6 +67,7 @@ public class Player : MonoBehaviour
 
         if (trigger.gameObject.tag.Equals("Bueno"))
         {
+            AudioSource.PlayClipAtPoint(playerAudios[1], Camera.main.transform.position);
             Destroy(trigger.gameObject);
             puntos++;
         }

@@ -737,6 +737,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bueno
       objectReference: {fileID: 0}
+    - target: {fileID: 1814546165073292333, guid: 8ff2477af6eed614f8699c514bf7db68,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ff2477af6eed614f8699c514bf7db68, type: 3}
 --- !u!1 &392092413
@@ -1522,6 +1527,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Malo
+      objectReference: {fileID: 0}
+    - target: {fileID: 1696955542204744286, guid: ee44178c81eda66469f3e2b467615cc0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1696955542204744291, guid: ee44178c81eda66469f3e2b467615cc0,
         type: 3}
@@ -2448,6 +2458,9 @@ MonoBehaviour:
   rb: {fileID: 1976496386}
   puntos: 0
   playerAnim: {fileID: 1976496391}
+  playerAudios:
+  - {fileID: 8300000, guid: 497de9de5d5b98d4d9fbce0d40896fba, type: 3}
+  - {fileID: 8300000, guid: 0d44d72cf2bf23e43b894a335e1d1202, type: 3}
 --- !u!212 &1976496390
 SpriteRenderer:
   m_ObjectHideFlags: 0

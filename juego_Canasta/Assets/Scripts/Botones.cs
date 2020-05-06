@@ -31,6 +31,11 @@ public class Botones : MonoBehaviour
         SceneManager.LoadScene(2);
         GameManager.Instance.SetGameState(GameManager.GameState.ranking);
     }
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
+        GameManager.Instance.SetGameState(GameManager.GameState.mainmenu);
+    }
 
     public void Quit()
     {
