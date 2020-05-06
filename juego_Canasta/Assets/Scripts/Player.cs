@@ -12,15 +12,13 @@ public class Player : MonoBehaviour
 
     public int puntos;
 
-    public bool corriendo;
+    private bool mirandoDerecha = true;
 
-    private bool parado;
-
-    private bool idle;
+    public Animator playerAnim;
     // Start is called before the first frame update
     void Start()
     {
-
+        playerAnim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -28,18 +26,15 @@ public class Player : MonoBehaviour
     {
         movimiento.x = Input.GetAxisRaw("Horizontal");
 
-        if (velocidadMov == 0 ){
+        playerAnim.SetFloat("Velocidad", Mathf.Abs(movimiento.x));
 
-            corriendo = false;
+        if ( movimiento.x >0 && !mirandoDerecha){
 
-            parado = true;
+            Flip();
         }
+        else if( movimiento.x <0 &&mirandoDerecha){
 
-        else{
-
-            corriendo = true;
-
-            parado = false;
+            Flip();
         }
     }
 
@@ -56,6 +51,9 @@ public class Player : MonoBehaviour
         {
             Destroy(trigger.gameObject);
             puntos--;
+
+            playerAnim.SetTrigger("Lastimado");           
+
         }
 
         if (trigger.gameObject.tag.Equals("Bueno"))
@@ -63,5 +61,16 @@ public class Player : MonoBehaviour
             Destroy(trigger.gameObject);
             puntos++;
         }
+    }
+
+       
+
+    void Flip(){
+        mirandoDerecha = !mirandoDerecha;
+
+        Vector3 escala = transform.localScale;
+        escala.x = escala.x* -1;
+        transform.localScale = escala;
+
     }
 }
