@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -28,7 +29,8 @@ public class GameManager : MonoBehaviour
     [Header("----Canvas----")]
     public GameObject mainMenuCanvas;
 
-
+  //  private string gameTimer;
+    public Text gameTimerUI;
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
@@ -67,13 +69,21 @@ public class GameManager : MonoBehaviour
     {
         if (currentGameState == GameState.playing)
         {
+            //setea los valores si el jugador es null
             if (player == null)
             {
                 player = GameObject.Find("Jugador");
+                
+            }
+            if(gameTimerUI == null)
+            {
+                gameTimerUI = GameObject.Find("CanvasNivel").transform.GetChild(1).gameObject.GetComponent<Text>();
             }
 
-
             gameSessionTime -= Time.deltaTime;
+            
+            gameTimerUI.text = gameSessionTime.ToString();  
+
             if (gameSessionTime <= 0)
             {
                 
@@ -89,10 +99,14 @@ public class GameManager : MonoBehaviour
         if (aState == GameState.playing)
         {
             
+            // gameTimerUI = GameObject.Find("CanvasNivel").transform.GetChild(1).gameObject.GetComponent<Text>();
+            //  Debug.Log( GameObject.Find("CanvasNivel").transform.GetChild(1).gameObject.name);
+
         }
         else if (aState == GameState.finish)
         {
             //stop game show menu ranking
+            GameObject.Find("CanvasNivel").transform.GetChild(1).gameObject.SetActive(false);
             GameObject.Find("CanvasNivel").transform.GetChild(0).gameObject.SetActive(true);
             RankingDate = System.DateTime.Now.ToString();
         }

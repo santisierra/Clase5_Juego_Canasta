@@ -843,6 +843,11 @@ PrefabInstance:
       propertyPath: currentGameState
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1419565237419305828, guid: 3b54f00f959e3f045bb0fa871ece0d8c,
+        type: 3}
+      propertyPath: gameTimerUI
+      value: 
+      objectReference: {fileID: 1755991726}
     - target: {fileID: 1710585994121178644, guid: 3b54f00f959e3f045bb0fa871ece0d8c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2086,6 +2091,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1755991726 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5725635843295920948, guid: ffed5e6a7131ebc47b5259bc73ca9cd6,
+    type: 3}
+  m_PrefabInstance: {fileID: 4284716316025656670}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1787290001
 GameObject:
   m_ObjectHideFlags: 0
@@ -2809,6 +2826,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CanvasNivel
+      objectReference: {fileID: 0}
+    - target: {fileID: 5725635843295920948, guid: ffed5e6a7131ebc47b5259bc73ca9cd6,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Timer:'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffed5e6a7131ebc47b5259bc73ca9cd6, type: 3}
