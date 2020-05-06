@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
 
             gameSessionTime -= Time.deltaTime;
             
-            gameTimerUI.text = gameSessionTime.ToString();  
+            gameTimerUI.text = "Timer: "+((int) gameSessionTime).ToString();  
 
             if (gameSessionTime <= 0)
             {
