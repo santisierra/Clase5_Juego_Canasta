@@ -27,7 +27,12 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        movimiento.x = Input.GetAxisRaw("Horizontal");
+        movimiento.x = 0;
+        if(GameManager.Instance.GetCurrentGameState() == GameManager.GameState.playing)
+        {
+            movimiento.x = Input.GetAxisRaw("Horizontal");
+        }
+
 
         playerAnim.SetFloat("Velocidad", Mathf.Abs(movimiento.x));
 
